@@ -1,0 +1,46 @@
+
+
+<html >
+  <head>
+    <title> moving of mouse </title>
+
+    <script type="text/javascript">
+      function new(){
+      var row,cell;
+      var tf=document.getElementById("tbody");
+      for(var i=0; i<100; i++){
+
+        var row=document.createElement("tr");
+
+        for(var j=0; j<100; j++){
+
+          var cell=document.createElement("td");
+          cell.onmousemove=action;
+          row.appendChild(cell);
+        }
+        tf.appendChild(row);
+      }
+      }
+
+      function action(e){
+        if(!e)
+          e=window.event;
+        if(e.shiftKey)
+          this.style.backgroundColor=yellow;
+        else if(e.ctrlKey)
+          this.style.backgroundColor=red;
+        else
+          this.style.backgroundColor=blue;
+      }
+    </script>
+  </head>
+  <body onload="new()">
+      <table>
+        <tbody id="tbody">
+          <tr>
+            <a><td colspan="100">ABC</td></a>
+          </tr>
+        </tbody>
+      </table>
+  </body>
+</html>
